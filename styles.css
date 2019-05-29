@@ -1,0 +1,42 @@
+.title {
+    text-align: center;
+    font-size: 2em;
+}
+
+.scoreboard {
+    grid-column: 1/-1;
+    font-size: 1em;
+}
+
+.card {
+    position: relative;
+    height: 200px;
+    width: 150px;
+    margin: 5px;
+    transform-style: preserve-3d;
+    transition: transform .2s;
+}
+
+.game_board {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto auto auto auto;
+    margin: auto;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card img{
+    height:100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card_front {
+    transform: rotateY(180deg);
+}

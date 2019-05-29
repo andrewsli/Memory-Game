@@ -5,7 +5,7 @@ document.getElementById("reset_button").addEventListener("click",resetGame);
 
 
 function flipCard() {
-    if (this===firstCard){
+    if (this===firstCard || document.getElementsByClassName("active").length===2){
         return;
     }
     
@@ -14,11 +14,13 @@ function flipCard() {
     if(!cardIsFlipped){
         cardIsFlipped=true;
         firstCard=this;
+        firstCard.classList.add('active');
         document.getElementById('flips').innerHTML++
         return;
     }
 
     secondCard = this;
+    secondCard.classList.add('active');
     document.getElementById('flips').innerHTML++
 
     checkMatch();
@@ -41,6 +43,8 @@ function cardsMatched(){
 }
 
 function resetStates(){
+    firstCard.classList.remove('active');
+    secondCard.classList.remove('active');
     cardIsFlipped = false;
     firstCard = undefined;
     secondCard = undefined;
@@ -53,6 +57,7 @@ function unflipCards(){
 }
 
 function resetGame(){
+    let cards = document.querySelectorAll(".card");
     for (let x of cards){
         x.classList.remove("flipped");
     }

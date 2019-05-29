@@ -40,6 +40,9 @@ function cardsMatched(){
     firstCard.removeEventListener("click",flipCard);
     secondCard.removeEventListener("click",flipCard);
     resetStates();
+    if (document.getElementsByClassName("flipped").length===16 && document.getElementById("best_score").innerHTML >document.getElementById('flips').innerHTML){
+        document.getElementById("best_score").innerHTML = document.getElementById('flips').innerHTML;
+    }
 }
 
 function resetStates(){
@@ -63,7 +66,9 @@ function resetGame(){
     }
     addClicksToCards();
     resetCounter();
-    resetStates();
+    firstCard = undefined;
+    secondCard = undefined;
+    cardIsFlipped = false;
     shuffleCards();
 }
 

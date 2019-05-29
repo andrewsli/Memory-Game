@@ -6,6 +6,8 @@
 .scoreboard {
     grid-column: 1/-1;
     font-size: 1em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .card {

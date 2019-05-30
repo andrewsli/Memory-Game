@@ -112,6 +112,9 @@ function shuffleCards(){
         card_div.className = "card";
         card_div.dataset.card_type = x;
 
+        let inner_container = document.createElement('div');
+        inner_container.className = "inner_container";
+
         let cardfront = document.createElement('img');
         cardfront.className = "card_front";
         cardfront.src = x+".png";
@@ -120,8 +123,9 @@ function shuffleCards(){
         cardback.className = "card_back";
         cardback.src = "cardback.png";
 
-        card_div.append(cardfront);
-        card_div.append(cardback);
+        card_div.append(inner_container);
+        inner_container.append(cardfront);
+        inner_container.append(cardback);
         game_board.appendChild(card_div);
     }
     addClicksToCards();
